@@ -183,6 +183,567 @@
     <header id="mainHeader" class="main-header">
         <div class="flex items-center">
             <!-- Brand Logo -->
+            <img id="mainLogo" src="https://github.com/bricksandmortarconstruction/bricksandmortar/blob/55ecb1c2a84ff97dec870878a05a662e96e87db6/logo.jpg" alt="Bricks & Mortar Constructions Logo" class="header-logo mr-3 rounded-md">
+            <span class="text-xl font-bold text-brown-800 whitespace-nowrap">Bricks & Mortar Constructions</span>
+        </div>
+        <nav>
+            <!-- Navigation links (optional for landing pages, often omitted) -->
+        </nav>
+    </header>
+
+    <!-- Offset div to prevent content from being hidden behind fixed header -->
+    <div class="content-offset"></div>
+
+    <!-- Hero Section -->
+    <section class="bg-brown-800 text-white py-20 px-6 md:px-12 text-center rounded-lg m-4 shadow-lg relative z-10">
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+            Build Your Dream Vastu Home in Bengaluru with Bricks & Mortar
+        </h1>
+        <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+            Experience harmonious living with our Vastu Shastra-compliant constructions. Plus, seize our limited-time "Freedom Offer" and get a Modular Kitchen worth ₹1 Lakh!
+        </p>
+        <a href="#cta-form" class="inline-block bg-beige-500 text-brown-800 hover:bg-beige-400 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+            Claim Your Offer Today!
+        </a>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 px-6 md:px-12 bg-white m-4 rounded-lg shadow-md relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose Bricks & Mortar?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Feature 1: Vastu Shastra Expertise -->
+            <div class="bg-beige-100 p-6 rounded-lg shadow-sm text-center">
+                <div class="text-brown-800 mb-4">
+                    <svg class="h-12 w-12 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.31L18.6 7.5 12 10.69 5.4 7.5 12 4.31zm-8 4.19l8 4v8l-8-4V8.5zm16 0V16.5l-8 4v-8l8-4z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Authentic Vastu Compliance</h3>
+                <p class="text-brown-600">Every project is meticulously designed and constructed following the principles of Vastu Shastra for peace and prosperity.</p>
+            </div>
+            <!-- Feature 2: Quality Construction -->
+            <div class="bg-beige-100 p-6 rounded-lg shadow-sm text-center">
+                <div class="text-brown-800 mb-4">
+                    <svg class="h-12 w-12 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Uncompromising Quality</h3>
+                <p class="text-brown-600">We use premium materials and employ skilled craftsmen to ensure durability and excellence in every build.</p>
+            </div>
+            <!-- Feature 3: Customer-Centric Approach -->
+            <div class="bg-beige-100 p-6 rounded-lg shadow-sm text-center">
+                <div class="text-brown-800 mb-4">
+                    <svg class="h-12 w-12 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Dedicated Customer Support</h3>
+                <p class="text-brown-600">From concept to completion, our team provides personalized support and clear communication.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vastu Wisdom Assistant Section (New LLM Feature) -->
+    <section id="vastu-assistant" class="py-16 px-6 md:px-12 bg-white m-4 rounded-lg shadow-md relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">✨ Vastu Wisdom Assistant ✨</h2>
+        <p class="text-lg text-center mb-8 max-w-2xl mx-auto text-brown-800">
+            Ask our AI-powered Vastu Assistant for quick tips and insights for your home! For example, try "Vastu tips for kitchen" or "Best direction for main entrance".
+        </p>
+        <div class="max-w-xl mx-auto bg-beige-100 p-6 rounded-lg shadow-inner">
+            <textarea
+                id="vastuInput"
+                class="w-full p-3 rounded-md border border-beige-400 focus:outline-none focus:ring-2 focus:ring-beige-500 text-brown-800 mb-4 resize-y"
+                rows="3"
+                placeholder="e.g., Vastu tips for bedroom, ideal placement of Pooja room..."
+            ></textarea>
+            <button
+                id="getVastuTipBtn"
+                class="w-full bg-brown-800 text-white hover:bg-brown-600 font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center"
+            >
+                <span id="buttonText">Get Vastu Tip</span>
+                <div id="loader" class="loader ml-3"></div>
+            </button>
+            <div id="vastuOutput" class="mt-6 p-4 bg-beige-200 rounded-lg border border-beige-300 text-brown-800 text-left min-h-[100px] flex items-center justify-center">
+                <p class="text-brown-600 italic">Your Vastu tip will appear here...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section id="plans" class="py-16 px-6 md:px-12 bg-beige-200 m-4 rounded-lg shadow-md relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Construction Plans</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Silver Plan -->
+            <div class="bg-white p-6 rounded-lg shadow-sm text-center border-t-4 border-gray-400">
+                <h3 class="text-2xl font-bold text-gray-700 mb-4">Silver Plan</h3>
+                <p class="text-4xl font-extrabold text-brown-800 mb-4">₹1849<span class="text-lg font-medium">/sqft</span></p>
+                <ul class="text-brown-600 text-left mx-auto max-w-xs mb-6 space-y-2">
+                    <li class="flex items-center"><svg class="h-5 w-5 text-brown-800 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>Standard Quality Construction</li>
+                    <li class="flex items-center"><svg class="h-5 w-5 text-brown-800 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>Essential Finishes</li>
+                    <li class="flex items-center"><svg class="h-5 w-5 text-brown-800 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>Basic Design Support</li>
+                </ul>
+                <a href="#cta-form" class="inline-block bg-brown-800 text-white hover:bg-brown-600 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                    Choose Silver
+                </a>
+            </div>
+
+            <!-- Gold Plan -->
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center border-t-4 border-beige-500">
+                <h3 class="text-2xl font-bold text-brown-800 mb-4">Gold Plan</h3>
+                <p class="text-4xl font-extrabold text-brown-800 mb-4">₹2149<span class="text-lg font-medium">/sqft</span></p>
+                <ul class="text-brown-600 text-left mx-auto max-w-xs mb-6 space-y-2">
+                    <li class="flex items-center"><svg class="h-5 w-5 text-brown-800 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>Premium Quality Construction</li>
+                    <li class="flex items-center"><svg class="h-5 w-5 text-brown-800 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><strong class="text-brown-800">All Vastu Compliant Home Build</strong></li>
+                    <li class="flex items-center"><svg class="h-5 w-5 text-brown-800 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>Enhanced Finishes & Fixtures</li>
+                    <li class="flex items-center"><svg class="h-5 w-5 text-brown-800 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>Dedicated Design Consultation</li>
+                </ul>
+                <a href="#cta-form" class="inline-block bg-beige-500 text-brown-800 hover:bg-beige-400 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                    Choose Gold
+                </a>
+            </div>
+
+            <!-- Platinum Plan -->
+            <div class="bg-white p-6 rounded-lg shadow-lg text-center border-t-4 border-brown-800">
+                <h3 class="text-2xl font-bold text-brown-800 mb-4">Platinum Plan</h3>
+                <p class="text-4xl font-extrabold text-brown-800 mb-4">₹2449<span class="text-lg font-medium">/sqft</span></p>
+                <ul class="text-brown-600 text-left mx-auto max-w-xs mb-6 space-y-2">
+                    <li class="flex items-center"><svg class="h-5 w-5 text-brown-800 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>Luxury Quality Construction</li>
+                    <li class="flex items-center"><svg class="h-5 w-5 text-brown-800 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><strong class="text-brown-800">All Vastu Compliant Home Build</strong></li>
+                    <li class="flex items-center"><svg class="h-5 w-5 text-brown-800 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>High-End Finishes & Smart Home Integration</li>
+                    <li class="flex items-center"><svg class="h-5 w-5 text-brown-800 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>Comprehensive Project Management</li>
+                    <li class="flex items-center"><svg class="h-5 w-5 text-brown-800 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>Priority Support</li>
+                </ul>
+                <a href="#cta-form" class="inline-block bg-brown-800 text-white hover:bg-brown-600 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                    Choose Platinum
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section class="py-16 px-6 md:px-12 bg-beige-500 text-brown-800 m-4 rounded-lg shadow-lg relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Exclusive Freedom Offer!</h2>
+        <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+            Build your Vastu-compliant home with us and receive a **Modular Kitchen worth ₹1 Lakh absolutely FREE!** Don't miss this limited-time opportunity.
+        </p>
+        <a href="#cta-form" class="inline-block bg-brown-800 text-white hover:bg-brown-600 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+            Unlock Your Free Modular Kitchen!
+        </a>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 px-6 md:px-12 bg-beige-200 m-4 rounded-lg shadow-md relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">What Our Bengaluru Clients Say</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Testimonial 1 -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <p class="text-brown-800 italic mb-4">"Bricks & Mortar built our dream home in Bengaluru, perfectly aligning with Vastu principles. The quality is exceptional, and the modular kitchen offer was a fantastic bonus!"</p>
+                <div class="flex items-center">
+                    <img class="h-12 w-12 rounded-full mr-4" src="https://placehold.co/48x48/3a3226/ffffff?text=RK" alt="Customer Avatar">
+                    <div>
+                        <p class="font-semibold text-brown-800">Ravi Kumar</p>
+                        <p class="text-sm text-brown-600">Homeowner, Bengaluru</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <p class="text-brown-800 italic mb-4">"We are so impressed with the attention to detail and the adherence to Vastu. The team was professional, and the process was smooth. Highly recommend their services!"</p>
+                <div class="flex items-center">
+                    <img class="h-12 w-12 rounded-full mr-4" src="https://placehold.co/48x48/3a3226/ffffff?text=SA" alt="Customer Avatar">
+                    <div>
+                        <p class="font-semibold text-brown-800">Shalini Anand</p>
+                        <p class="text-sm text-brown-600">Client, Bengaluru</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Lead Capture Form Section -->
+    <section id="cta-form" class="py-16 px-6 md:px-12 bg-brown-800 text-white m-4 rounded-lg shadow-lg relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Build Your Vastu Home?</h2>
+        <p class="text-lg mb-8 max-w-2xl mx-auto">
+            Fill out the form below to get a free consultation and learn more about our Vastu-compliant construction services and the modular kitchen offer!
+        </p>
+        <form class="max-w-md mx-auto" action="https://formspree.io/f/mldlpkrd" method="POST">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    class="w-full sm:w-1/2 p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-beige-500 text-brown-800"
+                    required
+                >
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email Address"
+                    class="w-full sm:w-1/2 p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-beige-500 text-brown-800"
+                    required
+                >
+            </div>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4">
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Your Phone Number"
+                    class="w-full sm:w-1/2 p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-beige-500 text-brown-800"
+                    required
+                >
+                <button
+                    type="submit"
+                    class="w-full sm:w-1/2 bg-beige-500 text-brown-800 hover:bg-beige-400 font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+                >
+                    Get Free Consultation
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-brown-800 text-beige-300 py-8 px-6 md:px-12 text-center rounded-t-lg relative z-10">
+        <p class="mb-4">&copy; 2025 Bricks & Mortar Constructions. All rights reserved.</p>
+        <div class="flex justify-center space-x-6">
+            <!-- Social Media Icons (replace # with actual links) -->
+            <a href="#" class="text-beige-400 hover:text-white transition duration-300">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                </svg>
+            </a>
+            <a href="#" class="text-beige-400 hover:text-white transition duration-300">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.002 3.797.048.85.04 1.488.156 2.04.346.6.2.986.47 1.34.809.36.339.66.6.867.948.207.346.34.7.375 1.2.048 1.013.048 1.351.048 3.797v.648c0 2.43-.002 2.784-.048 3.797-.04 1.006-.156 1.644-.346 2.04-.2.597-.47 1.016-.809 1.342-.339.34-.6.647-.948.867-.346.207-.7.34-1.2.375-1.013.048-1.351.048-3.798.048h-.646c-2.43 0-2.784-.002-3.797-.048-.85-.04-1.488-.156-2.04-.346-.6-.2-.986-.47-1.34-.809-.36-.339-.66-.6-.867-.948-.207-.346-.34-.7-.375-1.2-.048-1.013-.048-1.351-.048-3.798v-.646c0-2.43.002-2.784.048-3.797.04-1.006.156-1.644.346-2.04.2-.597.47-1.016.809-1.342.339-.34.6-.647.948-.867.346.207.7-.34 1.2-.375C9.507 2.002 9.845 2 12.315 2zm0 1.635c-2.43 0-2.695.002-3.657.048-.85.04-1.37.147-1.746.297-.4.156-.68.324-.867.51-.187.186-.355.46-.51.867-.15.376-.257.896-.297 1.746-.048.962-.048 1.227-.048 3.657v.646c0 2.43.002 2.695.048 3.657.04.85.147 1.37.297 1.746.156.4.324.68.51.867.186.187.46.355.867.51.376.15.896.257 1.746.297.962.048 1.227.048 3.657.048h.646c2.43 0 2.695-.002 3.657-.048.85-.04 1.37-.147 1.746-.297.4-.156.68-.324.867-.51.187-.186.355-.46.51-.867.15-.376.257-.896.297-1.746.048-.962.048-1.227-.048-3.657v-.646c0-2.43-.002-2.695-.048-3.657-.04-.85-.147-1.37-.297-1.746-.156-.4-.324-.68-.51-.867-.186-.187-.46-.355-.867-.51-.376-.15-.896-.257-1.746-.297-.962-.048-1.227-.048-3.657-.048H12.315zM12 7.337a4.663 4.663 0 100 9.326 4.663 4.663 0 000-9.326zm0 1.635a3.028 3.028 0 110 6.056 3.028 3.028 0 010-6.056zm6.406-5.463a1.066 1.066 0 100 2.132 1.066 1.066 0 000-2.132z" clip-rule="evenodd" />
+                </svg>
+            </a>
+            <a href="#" class="text-beige-400 hover:text-white transition duration-300">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 10.702c-.004.05-.004.1-.004.152A4.102 4.102 0 004.31 14.145a4.106 4.106 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Pop-up Offer Banner (Modal) -->
+    <div id="offerModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-button" onclick="closeModal()">&times;</button>
+            <h2 class="text-3xl md:text-4xl font-bold text-brown-800 mb-4">
+                🎉 Exclusive Freedom Offer! 🎉
+            </h2>
+            <p class="text-lg text-brown-800 mb-6">
+                Build your dream Vastu-compliant home with us and receive a
+                <strong class="text-beige-500">Modular Kitchen worth ₹1 Lakh absolutely FREE!</strong>
+            </p>
+            <a href="#cta-form" class="inline-block bg-brown-800 text-white hover:bg-brown-600 font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105" onclick="closeModal()">
+                Claim Your Free Kitchen Now!
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal element
+        const offerModal = document.getElementById('offerModal');
+
+        // Function to show the modal
+        function showModal() {
+            offerModal.classList.add('show');
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            offerModal.classList.remove('show');
+        }
+
+        // Show the modal after 2 seconds when the page loads
+        window.onload = function() {
+            setTimeout(showModal, 2000); // 2000 milliseconds = 2 seconds
+
+            // Dynamic Header/Logo on Scroll
+            const mainHeader = document.getElementById('mainHeader');
+            const mainLogo = document.getElementById('mainLogo');
+            const scrollThreshold = 100; // Adjust this value as needed
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > scrollThreshold) {
+                    mainHeader.classList.add('scrolled');
+                    mainLogo.classList.add('scrolled');
+                } else {
+                    mainHeader.classList.remove('scrolled');
+                    mainLogo.classList.remove('scrolled');
+                }
+            });
+        };
+
+        // Close modal if clicked outside the content
+        offerModal.addEventListener('click', function(event) {
+            if (event.target === offerModal) {
+                closeModal();
+            }
+        });
+
+        // Gemini API Integration for Vastu Wisdom Assistant
+        const vastuInput = document.getElementById('vastuInput');
+        const getVastuTipBtn = document.getElementById('getVastuTipBtn');
+        const vastuOutput = document.getElementById('vastuOutput');
+        const loader = document.getElementById('loader');
+        const buttonText = document.getElementById('buttonText');
+
+        getVastuTipBtn.addEventListener('click', async () => {
+            const prompt = vastuInput.value.trim();
+            if (!prompt) {
+                vastuOutput.innerHTML = '<p class="text-red-500">Please enter a question or topic for Vastu tips.</p>';
+                return;
+            }
+
+            // Show loading indicator
+            loader.style.display = 'block';
+            buttonText.textContent = 'Getting Tip...';
+            getVastuTipBtn.disabled = true;
+            vastuOutput.innerHTML = '<p class="text-brown-600 italic">Thinking...</p>';
+
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: `Provide a concise Vastu Shastra tip for the following query, focusing on practical advice for home construction or living in Bengaluru. If the query is not related to Vastu, politely state that you can only provide Vastu-related advice: "${prompt}"` }] });
+
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // Canvas will automatically provide this
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            let retryCount = 0;
+            const maxRetries = 3;
+            const initialDelay = 1000; // 1 second
+
+            async function fetchWithExponentialBackoff() {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        if (response.status === 429 && retryCount < maxRetries) {
+                            const delay = initialDelay * Math.pow(2, retryCount);
+                            retryCount++;
+                            console.log(`Rate limit hit. Retrying in ${delay / 1000} seconds...`);
+                            await new Promise(resolve => setTimeout(resolve, delay));
+                            return fetchWithExponentialBackoff(); // Retry the fetch
+                        }
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        vastuOutput.innerHTML = `<p>${text}</p>`;
+                    } else {
+                        vastuOutput.innerHTML = '<p class="text-red-500">Could not get a Vastu tip. Please try again.</p>';
+                    }
+                } catch (error) {
+                    console.error('Error fetching Vastu tip:', error);
+                    vastuOutput.innerHTML = `<p class="text-red-500">Error: ${error.message}. Please try again later.</p>`;
+                } finally {
+                    // Hide loading indicator
+                    loader.style.display = 'none';
+                    buttonText.textContent = 'Get Vastu Tip';
+                    getVastuTipBtn.disabled = false;
+                }
+            }
+
+            fetchWithExponentialBackoff();
+        });
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bricks & Mortar Constructions - Vastu Homes in Bengaluru</title>
+    <!-- Tailwind CSS CDN - MUST BE LOADED FIRST -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS Custom Color Configuration - MUST BE AFTER CDN -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        beige: {
+                            100: '#f8f5f0',
+                            200: '#f0e9dd',
+                            300: '#e8ddca',
+                            400: '#e0d1b7',
+                            500: '#d8c5a4', // Primary beige
+                        },
+                        brown: {
+                            800: '#3a3226', // Dark brown for text and backgrounds
+                            600: '#3a3226cc', // 80% opacity for hover states
+                            400: '#3a322666'  // 40% opacity for subtle elements
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Background image with cover and fixed position */
+            background-image: url('https://tse1.mm.bing.net/th/id/OIP.Jr4nRv-NeAEP3nswXLEy6gAAAA?w=308&h=308&rs=1&pid=ImgDetMain&o=7&rm=3');
+            background-size: cover; /* Cover the entire viewport */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-position: center center; /* Center the image */
+            background-attachment: fixed; /* Keep background fixed while scrolling */
+        }
+        /* Overlay for text readability - INCREASED OPACITY */
+        .overlay {
+            background-color: rgba(248, 245, 240, 0.95); /* beige-100 with 95% opacity */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Place behind content */
+        }
+
+        /* Header specific styles */
+        .main-header {
+            position: fixed; /* Make header fixed */
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* shadow-sm */
+            padding-top: 1rem; /* Initial padding */
+            padding-bottom: 1rem; /* Initial padding */
+            transition: all 0.3s ease-in-out; /* Smooth transition for size changes */
+            z-index: 900; /* Below modal, above content */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom-left-radius: 0.75rem; /* rounded-b-lg */
+            border-bottom-right-radius: 0.75rem; /* rounded-b-lg */
+            padding-left: 1.5rem; /* px-6 */
+            padding-right: 1.5rem; /* px-6 */
+        }
+
+        @media (min-width: 768px) { /* md:px-12 */
+            .main-header {
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+        }
+
+        .main-header.scrolled {
+            padding-top: 0.5rem; /* Smaller padding when scrolled */
+            padding-bottom: 0.5rem; /* Smaller padding when scrolled */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+        }
+
+        /* Logo specific styles */
+        .header-logo {
+            height: 64px; /* Larger initial size */
+            width: auto;
+            transition: all 0.3s ease-in-out; /* Smooth transition for size changes */
+        }
+
+        .header-logo.scrolled {
+            height: 40px; /* Medium size when scrolled */
+            margin-right: 0.75rem; /* Adjust margin when scrolled */
+        }
+
+        /* Ensure content is not hidden behind fixed header */
+        .content-offset {
+            padding-top: 80px; /* Adjust based on initial header height */
+        }
+
+        /* Modal specific styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* High z-index to be on top */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 2.5rem; /* Increased padding */
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* shadow-xl */
+            max-width: 90%;
+            width: 500px; /* Max width for the modal */
+            text-align: center;
+            position: relative;
+            transform: translateY(-20px); /* Initial slight lift */
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.show .modal-content {
+            transform: translateY(0); /* Slide into place */
+        }
+
+        .modal-close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #3a3226; /* brown-800 */
+            transition: color 0.2s ease;
+        }
+
+        .modal-close-button:hover {
+            color: #d8c5a4; /* beige-500 */
+        }
+
+        /* Loading spinner */
+        .loader {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #3a3226; /* Brown-800 */
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: none; /* Hidden by default */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="text-brown-800 relative">
+    <!-- Background Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Header Section -->
+    <header id="mainHeader" class="main-header">
+        <div class="flex items-center">
+            <!-- Brand Logo -->
             <img id="mainLogo" src="https://placehold.co/100x64/3a3226/d8c5a4?text=BM" alt="Bricks & Mortar Constructions Logo" class="header-logo mr-3 rounded-md">
             <span class="text-xl font-bold text-brown-800 whitespace-nowrap">Bricks & Mortar Constructions</span>
         </div>
