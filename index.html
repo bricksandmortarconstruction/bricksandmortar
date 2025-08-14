@@ -323,7 +323,7 @@
 </head>
 <body class="text-dark-complement relative">
     <!-- Background Audio -->
-    <audio id="backgroundMusic" autoplay loop volume="0.2">
+    <audio id="backgroundMusic" autoplay loop volume="0.2" muted>
         <source src="https://raw.githubusercontent.com/bricksandmortarconstruction/bricksandmortar/3bc0503f27a1dc4c29bb2e71d050f5b2fd46a352/lofi-background-music-388291.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -343,10 +343,10 @@
         <nav>
             <!-- Music Toggle Button -->
             <button id="musicToggleBtn" class="bg-dark-complement text-cornsilk-50 p-2 rounded-full shadow-md transition duration-300 hover:bg-light-complement">
-                <svg id="volumeOnIcon" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <svg id="volumeOnIcon" class="h-6 w-6 hidden" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.98 7-4.66 7-8.77s-2.99-7.79-7-8.77z"/>
                 </svg>
-                <svg id="volumeOffIcon" class="h-6 w-6 hidden" fill="currentColor" viewBox="0 0 24 24">
+                <svg id="volumeOffIcon" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0-.94-.2-1.82-.54-2.64l1.51-1.51C20.48 8.04 21 9.94 21 12c0 4.41-3.59 8-8 8-1.01 0-1.97-.2-2.84-.54l1.49-1.49c.82.33 1.71.54 2.65.54 2.48 0 4.5-2.02 4.5-4.5zm-9.96-7.53l-1.41 1.41L12.04 9H3v6h4l5 5v-6.77l1.51 1.51c-.15.21-.29.43-.45.65-.5.77-1.12 1.4-1.8 1.88L12 17.77V20c4.01-.98 7-4.66 7-8.77 0-1.54-.47-2.98-1.29-4.22l-1.41-1.41zM12 4L7 9H3v6h4l5 5V4z"/>
                 </svg>
             </button>
@@ -482,6 +482,7 @@
                 <p class="text-4xl font-extrabold text-dark-complement mb-4">₹2449<span class="text-lg font-medium">/sqft</span></p>
                 <ul class="text-light-complement text-left mx-auto max-w-xs mb-6 space-y-2">
                     <li class="flex items-center"><svg class="h-5 w-5 text-dark-complement mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>Luxury Quality Construction</li>
+                    <li class="flex items-center"><svg class="h-5 w-5 text-dark-complement mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><strong class="text-dark-complement">All Vastu Compliant Home Build</strong></li>
                     <li class="flex items-center"><svg class="h-5 w-5 text-dark-complement mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>High-End Finishes & Smart Home Integration</li>
                     <li class="flex items-center"><svg class="h-5 w-5 text-dark-complement mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>Comprehensive Project Management</li>
                     <li class="flex items-center"><svg class="h-5 w-5 text-dark-complement mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>Priority Support</li>
@@ -705,6 +706,7 @@
         musicToggleBtn.addEventListener('click', () => {
             if (backgroundMusic.muted) {
                 backgroundMusic.muted = false;
+                backgroundMusic.play(); // Attempt to play if it was paused
                 volumeOnIcon.classList.remove('hidden');
                 volumeOffIcon.classList.add('hidden');
             } else {
